@@ -1,0 +1,58 @@
+
+
+*{
+    border: solid;
+    font-size: 10px !important; /* перекрывает все! */
+}
+
+html{
+    font-size: 20px;
+}
+
+body{
+    background-color: pink;
+    color: #000; /*для всех элементов, у которых нет своего*/
+    font-size: 1vw;
+    border: 1px solid red;
+}
+
+
+.form{
+    font-size: 2em;
+}
+
+h1, h2{
+    font-size: 2rem;
+    color: #ff000080; /*Можно задавать прозрачность!*/
+
+}
+
+h1:hover{
+    color: dodgerblue;
+}
+/*
+h2{
+    font-size: 1.5rem;
+}*/
+
+input{
+    width: 150px;
+    height: 30px;
+    margin: 10px;
+    display: block;
+}
+
+/* 1em == font-size в body*/
+/*rem = root em (от html)*/
+
+/*vw viewport width - % от ширины экрана
+vh viewport height - % от высоты экрана */
+
+/* #ff0000 */
+
+/*reset дает консистентность?*/
+/*normalize.css*/
+
+/*
+important
+*/
