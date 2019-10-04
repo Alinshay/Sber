@@ -1,0 +1,46 @@
+
+body{
+    display: block;
+}
+
+button{
+    width: 100px;
+    height: 25px;
+    display: block;
+    margin-bottom: 10px;
+    background:#7aca7c;
+
+}
+
+#button{
+    position: absolute;
+    top:10px;
+    left: 10px;
+
+}
+
+#page{
+    top:0;
+    left: 150px;
+    background: #ebccd1;
+    box-shadow: 1px 1px 4px #2f2a30;
+    width: 600px;
+    height: 300px;
+    position: relative;
+    padding-top: 10px;
+
+}
+#page p{
+    margin-left: 20px;
+}
+
+#page img{
+    position: absolute;
+    right: 20px;
+    top:20px;
+}
+
+.film2{
+    display: inline-block;
+}
+
