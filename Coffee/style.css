@@ -1,0 +1,83 @@
+
+body{
+    margin: 0 auto;
+    grid-template-areas: 'a a a a' 'b c d p' 'e f g p' 'h i j p';
+
+
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    grid-auto-rows: 0.3fr 0.3fr 0.3fr;
+    grid-gap: 10px;
+}
+
+
+button{
+    background-color: #ebccd1;
+}
+
+#back{
+    grid-area: a;
+    width: 100%;
+    height: 300px;
+    background-color: #7aca7c;
+}
+
+
+#picture{
+    grid-area: p;
+    width: 400px;
+    height: 100%;
+    background-color: dodgerblue;
+}
+
+#espresso{
+    grid-area: b;
+}
+
+#latte{
+    grid-area: c;
+}
+
+#cappuccino{
+    grid-area: d;
+}
+
+#banana{
+    grid-area: e;
+}
+
+#vanilla{
+    grid-area: f;
+}
+
+#flatWhite{
+    grid-area: g;
+}
+
+#milk{
+    grid-area: h;
+}
+
+#syrup{
+    grid-area: i;
+}
+
+#payment{
+    grid-area: j;
+}
+
+
+#greyProgress {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #ddd;
+}
+
+#greenBar {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
