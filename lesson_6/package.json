@@ -14,7 +14,17 @@
     "alinshay"
   ],
   "author": "Alina Shaykhutdinova",
-  "license": "ISC"
+  "license": "ISC",
+  "devDeppendencies": {
+    "@babel/present-env": "~7.6.3",
+    "babel-loader": "8.0.0",
+    "copy-webpack-plugin": "~4.6.0",
+    "cross-env": "~6.0.3",
+    "css-loader": "3.2.0",
+    "postcss-loader": "~3.0.0",
+    "style-loader": "~1.0.0",
+    "webpack": "~3.12.0",
+    "webpack-bundle-analyzer": "~3.5.3",
+    "webpack-dev-middleware": "~2.0.6"
+  }
 }
-
-
