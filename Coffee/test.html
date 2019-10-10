@@ -10,25 +10,35 @@
 <body>
 
 
-<div id="back"><button id="cancel" onclick="logic();"> Cancel </button></div>
+<div id="back">
+
+    <div class="discount"> <input type="text" id="code"><br> <button id="check"> Check</button> <br><button id="register"> Register</button><br><br> </div>
+
+     <button id="cancel" onclick="logic();">  Cancel </button> <div id="name"> </div>
+
+</div>
 
 
-    <button  id="espresso">Espresso</button>
-    <button  id="latte"> Latte </button>
-    <button  id="cappuccino"> Cappuccino </button>
-    <button  id="banana"> Banana latte</button>
-    <button  id="vanilla"> Vanilla latte</button>
-    <button  id="flatWhite">Flat White</button>
-    <button  id="milk">Milk</button>
-    <button  id="syrup">Syrup</button>
-    <button  id="payment">Payment</button>
-    <div id="picture">
+    <button class="coffee drink"  id="espresso">Espresso</button>
+    <button class="coffee drink" id="latte"> Latte </button>
+    <button class="coffee drink" id="cappuccino"> Cappuccino </button>
+    <button class="coffee drink" id="banana"> Banana latte</button>
+    <button class="coffee drink" id="vanilla"> Vanilla latte</button>
+    <button class="coffee drink" id="flatWhite">Flat White</button>
+    <button class="coffee drink" id="milk">Milk</button>
+    <button class="coffee drink" id="syrup" disabled>Syrup</button>
+    <button class="coffee" id="payment">Payment</button>
+
+    <div id="menu">
+        <div id="picture"> </div>
+        <div id="bar">
         <div id="greyProgress"> </div>
-        <div id="greenBar">0%</div>
+        <div id="greenBar"></div>
+        </div>
     </div>
 
 
-<div id="name"></div>
+    <button id="get"></button>
 
 <script>logic();</script>
 </body>

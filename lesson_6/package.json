@@ -1,0 +1,20 @@
+{
+  "name": "lesson6",
+  "version": "0.2.2",
+  "description": "...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alinshay"
+  },
+  "keywords": [
+    "alinshay"
+  ],
+  "author": "Alina Shaykhutdinova",
+  "license": "ISC"
+}
+
+
