@@ -1,0 +1,27 @@
+.statistics {
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 4px;
+  background-color: pantone('522 C');
+  font-size: 20px;
+
+  .term {
+    font-size: 32px;
+  }
+
+
+}
+
+.window{
+  width: 25%;
+  display: inline-block;
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 4px;
+  background-color: pantone('7464 C');
+
+
+
+}
