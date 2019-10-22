@@ -27,6 +27,27 @@
 
 }
 
-#result{
-  display: none;
+
+#report{
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 40%;
+}
+
+
+#menu{
+  background: #FCE1E5;
+  position: absolute;
+  top: 250px;
+  right: 100px;
+  width: 40%;
+}
+
+#db1{
+  display: block;
+}
+
+.item_menu{
+  display: inline;
 }
