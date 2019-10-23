@@ -7,25 +7,28 @@ import {
     Link
 } from "react-router-dom";
 
-
-
 /*Поиск и добавление продуктов в меню*/
 class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: []
+        };
 
         this.handleSearchRequestChange = this.handleSearchRequestChange.bind(this);
         this.handleProductWeightChange = this.handleProductWeightChange.bind(this);
     }
 
-
-
     handleSearchRequestChange(e) {
+
         this.props.onSearchRequest(e.target.value);
         this.props.product_db.splice(0, this.props.product_db.length);
         fetch('http://api.nutritionix.com/v1_1/search/%20'+this.props.searchRequest+'?fields=item_name%2Citem_id%2Cnf_calories%2Cnf_total_fat%2Cnf_protein%2Cnf_total_carbohydrate&appId=0ef65026&appKey=+0d9c45522d76a90f850d2266a87a9917')
             .then(response=> response.json())
+
             .then(response=> {for(let i=0; i< response.hits.length; i++) {
 
                 /*Проверка на пустые поля*/
@@ -43,7 +46,19 @@ class SearchBar extends React.Component {
                     fat:response.hits[i].fields.nf_total_fat,
                     carb:response.hits[i].fields.nf_total_carbohydrate })
 
- }});
+ }})
+            .then(
+            () => {
+                this.setState({
+                    isLoaded: true,
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            })
 
         this.forceUpdate();
 
@@ -54,17 +69,19 @@ class SearchBar extends React.Component {
     }
 
     render() {
+            return (
+                <div>
+                    <input placeholder="Search..." type="text" value={this.props.searchRequest}
+                           onChange={this.handleSearchRequestChange}/>
+                    <br/>
+                    <input placeholder="Enter weight..." type="number" value={this.props.productWeight}
+                           onChange={this.handleProductWeightChange}/> <a>gr.</a>
 
-        return(
-            <div>
-                <input placeholder="Search..." type="text" value={this.props.searchRequest} onChange={this.handleSearchRequestChange} />
-                <br/>
-                <input placeholder="Enter weight..." type="number" value={this.props.productWeight} onChange={this.handleProductWeightChange} /> <a>gr.</a>
+                    <SearchBarItems addMenuItem={this.props.addMenuItem} menu={this.props.menu}
+                                    productWeight={this.props.productWeight} product_db={this.props.product_db} error={this.state.error} isLoaded={this.state.isLoaded} />
+                </div>)
+        }
 
-                <SearchBarItems addMenuItem = {this.props.addMenuItem} menu = {this.props.menu} productWeight = {this.props.productWeight}  product_db = {this.props.product_db}/>
-            </div>)
-
-    }
 }
 
 
@@ -81,7 +98,8 @@ class SearchBarItems extends React.Component {
     }
 
 
-    render() {
+    render()
+    {
         const mas =[];
         const gr = this.props.productWeight/100;
 
@@ -94,8 +112,14 @@ class SearchBarItems extends React.Component {
                 {Math.round(this.props.product_db[i].carb*gr)}) </button></div>)
             }
 
-
-        return( <div id="db"> {mas}</div>)
+        const error = this.props.error;
+        const isLoaded = this.props.isLoaded;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div></div>;
+        } else {
+        return( <div id="db"> {mas}</div>)}
     }
 
 }
@@ -107,7 +131,7 @@ class Calculator extends React.Component{
         super(props);
         this.state = {
             searchRequest: '',
-            productWeight: '',
+            productWeight: 100,
             product_db: [],
             menu: []
         };
@@ -128,11 +152,6 @@ class Calculator extends React.Component{
     this.setState({
         searchRequest: searchRequest
     });
-
-        this.setState({
-            productWeight: ''
-        })
-
 }
 
     handleProductWeightChange(productWeight) {
