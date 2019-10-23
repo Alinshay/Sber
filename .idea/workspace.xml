@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99543fba-2435-499f-b044-88b76c77e88e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coffee/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Coffee/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_6/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_6/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_7/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_7/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_7/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_7/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_7/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_7/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_7/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_7/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_7/src/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_9/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_9/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_9/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_9/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_9/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_9/src/App.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lesson_7/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+            <state relative-caret-position="217">
+              <caret line="212" column="10" lean-forward="true" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -33,13 +36,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lesson_9/src/App.js">
+        <entry file="file://$PROJECT_DIR$/lesson_7/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="123">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -71,6 +71,14 @@
       <find>consol</find>
       <find>inpu</find>
       <find>out</find>
+      <find>list</find>
+      <find>sum</find>
+      <find>console.</find>
+      <find>sets</find>
+      <find>rou</find>
+      <find>cal</find>
+      <find>calc</find>
+      <find>mai</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,7 +100,6 @@
         <option value="$PROJECT_DIR$/Coffee/style.css" />
         <option value="$PROJECT_DIR$/Coffee/test.html" />
         <option value="$PROJECT_DIR$/Coffee/test.js" />
-        <option value="$PROJECT_DIR$/lesson_7/src/test.js" />
         <option value="$PROJECT_DIR$/../6/stub/services/list-1.json" />
         <option value="$PROJECT_DIR$/../6/src/eggs.js" />
         <option value="$PROJECT_DIR$/../6/src/beer.js" />
@@ -111,10 +118,19 @@
         <option value="$PROJECT_DIR$/../6/src/tests/total-weight.spec.js" />
         <option value="$PROJECT_DIR$/../6/webpack.config.js" />
         <option value="$PROJECT_DIR$/lesson_7/list-1.json" />
-        <option value="$PROJECT_DIR$/lesson_7/src/App.css" />
         <option value="$PROJECT_DIR$/lesson_9/src/App.css" />
-        <option value="$PROJECT_DIR$/lesson_9/src/App.js" />
         <option value="$PROJECT_DIR$/lesson_9/src/reduce.js" />
+        <option value="$PROJECT_DIR$/lesson_9/package.json" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/reducers/index.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/reducers/type.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/types.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/actions/increment.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/actions/index.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/index.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/App.js" />
+        <option value="$PROJECT_DIR$/lesson_9/src/store/reducers/increment.js" />
+        <option value="$PROJECT_DIR$/lesson_7/src/test.js" />
+        <option value="$PROJECT_DIR$/lesson_7/src/App.css" />
         <option value="$PROJECT_DIR$/lesson_7/src/App.js" />
       </list>
     </option>
@@ -173,12 +189,12 @@
       <workItem from="1571327370826" duration="5383000" />
       <workItem from="1571388954815" duration="10873000" />
       <workItem from="1571565488799" duration="23000" />
-      <workItem from="1571645693061" duration="37320000" />
+      <workItem from="1571645693061" duration="67478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83258000" />
+    <option name="totallyTimeSpent" value="113416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -196,7 +212,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.12891567" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.39518073" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -207,38 +223,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/script.js" />
-    <entry file="file://$PROJECT_DIR$/lesson 3/task_1.js" />
-    <entry file="file://$PROJECT_DIR$/lesson 3/task_2.js" />
-    <entry file="file://$PROJECT_DIR$/lesson 3/extra.js" />
-    <entry file="file://$PROJECT_DIR$/lesson 3/task_3.js" />
-    <entry file="file://$PROJECT_DIR$/lesson_3/extra.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_3/task_3.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_3/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Memoji/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coffee/test.html" />
-    <entry file="file://$PROJECT_DIR$/Coffee/test.js" />
-    <entry file="file://$PROJECT_DIR$/../JS дз/webpack.config.js" />
     <entry file="file://$PROJECT_DIR$/Coffee/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -283,13 +267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_7/src/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Ration/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -313,13 +290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Coffee/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="515" column="40" lean-forward="true" selection-start-line="515" selection-start-column="40" selection-end-line="515" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lesson_6/stub/start.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -340,29 +310,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_7/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_9/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/lesson_9/src/reduce.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_9/src/App.js">
+    <entry file="file://$PROJECT_DIR$/lesson_9/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="15">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/reducers/index — копия.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/reducers/type.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/actions/increment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/reducers/increment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/store/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coffee/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1528">
+          <caret line="120" selection-start-line="120" selection-end-line="125" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_9/src/App.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_7/src/App 2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_7/src/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="83" column="21" lean-forward="true" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+          <folding>
+            <element signature="e#769#795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_7/src/App.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_7/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lesson_7/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="217">
+          <caret line="212" column="10" lean-forward="true" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

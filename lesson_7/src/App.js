@@ -1,102 +1,239 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import './App.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 
-let value =1;
-/*Выводим списочек продуктов в базе*/
-function tick() {
-    setTimeout(function(){
-        let mas=[];
-        {product_db.forEach(function(item){
-            mas.push(<div><button onClick={function () {
-                menu.push(<div class="item_menu"><p>{item.name} ({item.cal*value}/{item.prot*value}/{item.fat*value}/{item.carb*value})</p></div>);
-                result[0]+=item.cal*value;
-                result[1]+=item.prot*value;
-                result[2]+=item.fat*value;
-                result[3]+=item.carb*value;
-                updateMenu();
-                updateResult();
-            }}> {item.name} ({item.cal}/{item.prot}/{item.fat}/{item.carb}) </button></div>)
-        })}
-        const element = (<div id ="db1"> {mas} </div>);
-        ReactDom.render(element, document.getElementById('db'))
-    }, 1000)
 
-}
-
-/*Выводим меню (список продуктов, которые мы добавили)*/
-function updateMenu(){
-    const element = (<div>{menu}</div>);
-    ReactDom.render(element, document.getElementById('menu'))
-
-}
-
-let product_db = []
-let menu = [];
-let result =[0,0,0,0];
-
-function updateResult(){
-    const element = (<div id="report"> <p> Общее кол-во калорий: {result[0]}</p> <p> Белки: {result[1]}</p> <p> Жиры: {result[2]}</p> <p> Углеводы: {result[3]}</p> </div>);
-    ReactDom.render(element, document.getElementById('result'))
-}
-
-class Calculator extends React.Component {
+/*Поиск и добавление продуктов в меню*/
+class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.state ={value: '', number: 100, list: [], sum: 0, fat: 0, prot: 0, carb: 0};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChange1 = this.handleChange1.bind(this);
-
+        this.handleSearchRequestChange = this.handleSearchRequestChange.bind(this);
+        this.handleProductWeightChange = this.handleProductWeightChange.bind(this);
     }
 
-/*Подтягивает бд*/
-    handleChange(event) {
-        this.setState({value: event.target.value});
-        product_db =[];
-        fetch('http://api.nutritionix.com/v1_1/search/%20'+this.state.value+'?fields=item_name%2Citem_id%2Cnf_calories%2Cnf_total_fat%2Cnf_protein%2Cnf_total_carbohydrate&appId=0ef65026&appKey=+0d9c45522d76a90f850d2266a87a9917')
+
+
+    handleSearchRequestChange(e) {
+        this.props.onSearchRequest(e.target.value);
+        this.props.product_db.splice(0, this.props.product_db.length);
+        fetch('http://api.nutritionix.com/v1_1/search/%20'+this.props.searchRequest+'?fields=item_name%2Citem_id%2Cnf_calories%2Cnf_total_fat%2Cnf_protein%2Cnf_total_carbohydrate&appId=0ef65026&appKey=+0d9c45522d76a90f850d2266a87a9917')
             .then(response=> response.json())
             .then(response=> {for(let i=0; i< response.hits.length; i++) {
 
+                /*Проверка на пустые поля*/
                 if(response.hits[i].fields.nf_protein === null)
-                    response.hits[i].fields.nf_protein =0;
+                response.hits[i].fields.nf_protein =0;
                 if(response.hits[i].fields.nf_total_fat === null)
                     response.hits[i].fields.nf_total_fat =0;
                 if(response.hits[i].fields.nf_total_carbohydrate === null)
                     response.hits[i].fields.nf_total_carbohydrate =0;
 
-                product_db.push({name: response.hits[i].fields.item_name, cal:response.hits[i].fields.nf_calories, prot:response.hits[i].fields.nf_protein, fat:response.hits[i].fields.nf_total_fat, carb:response.hits[i].fields.nf_total_carbohydrate })}});
 
-        tick();
+                this.props.product_db.push({name: response.hits[i].fields.item_name,
+                    cal:response.hits[i].fields.nf_calories,
+                    prot:response.hits[i].fields.nf_protein,
+                    fat:response.hits[i].fields.nf_total_fat,
+                    carb:response.hits[i].fields.nf_total_carbohydrate })
+
+ }});
+
+        this.forceUpdate();
+
     }
 
-    handleChange1(event) {
-        this.setState({number: event.target.value});
+    handleProductWeightChange(e) {
+        this.props.onProductWeight(e.target.value);
     }
 
-    render() {return(
+    render() {
 
-       <div className='Calk'>
-            <header className="App-header">
-                <p>Калькулятор калорий</p>
-            </header>
+        return(
+            <div>
+                <input placeholder="Search..." type="text" value={this.props.searchRequest} onChange={this.handleSearchRequestChange} />
+                <br/>
+                <input placeholder="Enter weight..." type="number" value={this.props.productWeight} onChange={this.handleProductWeightChange} /> <a>gr.</a>
 
-        <div>
-            <h3>Выберите продукт</h3>
-                    <input type="text"  list="food" className="input"  value={this.state.value}  onChange={this.handleChange}/>
-            <div id="result"> </div>
-            <div id="db"></div>
-            <div id="menu"> </div>
+                <SearchBarItems addMenuItem = {this.props.addMenuItem} menu = {this.props.menu} productWeight = {this.props.productWeight}  product_db = {this.props.product_db}/>
+            </div>)
 
-        </div>
-       </div>
+    }
+}
 
-    )}
+
+/*Список продуктов для выбора*/
+class SearchBarItems extends React.Component {
+    constructor(props) {
+        super(props);
+        this.addNew= this.addNew.bind(this);
+    }
+
+    addNew(e) {
+        this.props.addMenuItem(e.target.innerText);
+
+    }
+
+
+    render() {
+        const mas =[];
+        const gr = this.props.productWeight/100;
+
+        /*Вычисления результатов (достаточно криво сделано, если в названии есть скобки - летит)*/
+        for(let i=0; i<this.props.product_db.length; i++)
+            {mas.push(<div key={i}><button onClick={this.addNew}> {this.props.product_db[i].name}
+            ({Math.round(this.props.product_db[i].cal*gr)}/
+                {Math.round(this.props.product_db[i].prot*gr)}/
+                {Math.round(this.props.product_db[i].fat*gr)}/
+                {Math.round(this.props.product_db[i].carb*gr)}) </button></div>)
+            }
+
+
+        return( <div id="db"> {mas}</div>)
+    }
 
 }
 
 
-export default Calculator
+/*Приложение целиком*/
+class Calculator extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchRequest: '',
+            productWeight: '',
+            product_db: [],
+            menu: []
+        };
+        this.handleSearchRequestChange = this.handleSearchRequestChange.bind(this);
+        this.handleProductWeightChange = this.handleProductWeightChange.bind(this);
+        this.addMenuItem = this.addMenuItem.bind(this);
+    }
+
+
+    addMenuItem(newItem) {
+        this.setState(prevState => ({
+            menu: [...prevState.menu, newItem]
+        }));
+    }
+
+
+    handleSearchRequestChange(searchRequest) {
+    this.setState({
+        searchRequest: searchRequest
+    });
+
+        this.setState({
+            productWeight: ''
+        })
+
+}
+
+    handleProductWeightChange(productWeight) {
+    this.setState({
+        productWeight: productWeight
+    })
+}
+
+    render(){
+        return(
+
+                <div>
+                    <header className="App-header">
+                        <p>Calorie Counter</p>
+                    </header>
+                    <SearchBar addMenuItem = {this.addMenuItem} menu = {this.state.menu}  product_db = {this.state.product_db} searchRequest = {this.state.searchRequest} productWeight = {this.state.productWeight} onSearchRequest={this.handleSearchRequestChange} onProductWeight={this.handleProductWeightChange}/>
+                    <RationReport menu = {this.state.menu}/>
+
+                </div>
+            )
+        }
+}
+
+
+
+/*Отображает общую сводку данных рациона*/
+class RationReport extends React.Component {
+    render() {
+        let cal = 0, prot =0, fat =0, carb =0;
+        const mas = [];
+        this.props.menu.forEach(function (item, i) {
+            mas.push(<div key={i}>{item}</div>);
+        })
+
+        const menu = this.props.menu;
+        const menu2 =[];
+
+            /*Вытягиваем цифры и считаем общее*/
+            for(let i=0; i< menu.length; i++){
+            menu2.push(menu[i].slice(menu[i].indexOf('(') + 1, menu[i].indexOf(')')));
+            cal += parseInt(menu2[i]);
+            menu2[i] = menu2[i].slice(menu2[i].indexOf('/')+1, menu2[i].length);
+            prot += parseInt(menu2[i]);
+            menu2[i] = menu2[i].slice(menu2[i].indexOf('/')+1,  menu2[i].length);
+            fat += parseInt(menu2[i]);
+            menu2[i] = menu2[i].slice(menu2[i].indexOf('/')+1,  menu2[i].length);
+            carb += parseInt(menu2[i]);
+            }
+
+        return(
+
+            <div id="report">
+                <p> Calories Consumed: {cal}</p>
+                <p> Protein: {prot}</p>
+                <p> Total Fat: {fat}</p>
+                <p> Total Carbohydrate: {carb}</p>
+                <hr/>
+
+                <div id="menu">{mas}</div>
+            </div>
+
+        )}
+}
+
+
+class About extends React.Component {
+    render() {
+        return(
+            <div>
+                <header className="App-header">
+                    <p>Calorie Counter</p>
+                </header>
+                <div id="about">
+                <h1>Hey!</h1>
+                <p> Put some information here</p>
+                </div>
+            </div>
+
+        )}
+}
+
+
+    export default function App() {
+        return (
+        <Router>
+        <div>
+            <nav>
+                <Link style={{marginRight: "20px"}} to="/">Calculator</Link>
+                <Link to="/about">About</Link>
+            </nav>
+
+        <Switch>
+            <Route path="/about">
+                <About />
+            </Route>
+
+            <Route path="/">
+                <Calculator />
+            </Route>
+        </Switch>
+        </div>
+        </Router>
+        );
+    }
