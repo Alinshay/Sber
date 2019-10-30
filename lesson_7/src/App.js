@@ -103,7 +103,6 @@ class SearchBarItems extends React.Component {
         const mas =[];
         const gr = this.props.productWeight/100;
 
-        /*Вычисления результатов (достаточно криво сделано, если в названии есть скобки - летит)*/
         for(let i=0; i<this.props.product_db.length; i++)
             {mas.push(<div key={i}><button onClick={this.addNew}> {this.props.product_db[i].name}
             ({Math.round(this.props.product_db[i].cal*gr)}/
@@ -117,7 +116,7 @@ class SearchBarItems extends React.Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div></div>;
+            return <div> </div>;
         } else {
         return( <div id="db"> {mas}</div>)}
     }
