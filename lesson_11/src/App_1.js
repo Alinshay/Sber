@@ -25,15 +25,15 @@ const connect = (mapStateToProps, mapDispatchToProps) => Component => {
         render() {
             return (
                 <Component
-                    {...mapStateToProps(store.getState(), this.props)}
-                    {...mapDispatchToProps(store.dispatch, this.props)}
+                    {...mapStateToProps(window.store.getState(), this.props)}
+                    {...mapDispatchToProps(window.store.dispatch, this.props)}
                     {...this.props}
                 />
             );
         }
 
         componentDidMount() {
-            store.subscribe(this.handleChange);
+            window.store.subscribe(this.handleChange);
         }
 
         handleChange = () => {
@@ -141,7 +141,5 @@ function App() {
     );
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 
-export default Provider
+export default App

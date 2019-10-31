@@ -1,35 +1,33 @@
 import React from "react";
+import './App.css';
 
-
-class TD extends React.Component{
-
-    render(){
-
-
-        let i = this.props.i;
-
-        return(
-            <div>
-                <td> {this.props.data.results[i].name} </td>
-                <td> {this.props.data.results[i].height} </td>
-                <td> {this.props.data.results[i].mass} </td>
-                <td> {this.props.data.results[i].birth_year} </td>
-                <td> {this.props.data.results[i].gender} </td>
-                <td> {this.props.data.results[i].eye_color} </td>
-                <td> {this.props.data.results[i].skin_color} </td>
-            </div>
-        )
-    }
-}
-
-class TR extends React.Component{
+class Table extends React.Component{
 
     render(){
 
         let mas=[];
-        for(let i=0; i<this.props.data.results.length; i++)
-            mas.push(<TD data={this.props.data} i={i}/>)
-
+        for(let i=0; i<this.props.data.length; i++){
+            if (i === this.props.highest)
+                mas.push( <div className="highest">
+                    <td> {this.props.data[i].name} </td>
+                    <td> {this.props.data[i].height} </td>
+                    <td> {this.props.data[i].mass} </td>
+                    <td> {this.props.data[i].birth_year} </td>
+                    <td> {this.props.data[i].gender} </td>
+                    <td> {this.props.data[i].eye_color} </td>
+                    <td> {this.props.data[i].skin_color} </td>
+                </div>)
+            else
+                mas.push(
+                    <div>
+                    <td> {this.props.data[i].name} </td>
+                    <td> {this.props.data[i].height} </td>
+                    <td> {this.props.data[i].mass} </td>
+                    <td> {this.props.data[i].birth_year} </td>
+                    <td> {this.props.data[i].gender} </td>
+                    <td> {this.props.data[i].eye_color} </td>
+                    <td> {this.props.data[i].skin_color} </td>
+                    </div>)}
         return(
             <div>
             <tr>
@@ -40,26 +38,47 @@ class TR extends React.Component{
     }
 }
 
-
-class Table extends React.Component{
+class App extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state={search: ''}
+        this.state={search: '', theHighestIndex: this.findTheHigher(), new_data: data.results}
         this.searchRequest= this.searchRequest.bind(this);
-        this.filter= this.filter.bind(this);
+        this.findTheHigher= this.findTheHigher.bind(this);
     }
 
 
+
     searchRequest = function (search) {
+        new_data=[];
         this.setState({
             search: search.target.value
         });
 
+        for(let i=0; i<data.results.length; i++)
+           if(data.results[i].name.toUpperCase().indexOf(search.target.value.toUpperCase())!==-1)
+               new_data.push(data.results[i]);
+
+        if(new_data.length>0)
+        {let theHighest = parseInt(new_data[0].height);
+        let index =0;
+        for(let i=0; i<new_data.length; i++)
+            if(parseInt(new_data[i].height)>theHighest) {
+                theHighest = new_data[i].height;
+                index=i;
+            }
+        this.setState({theHighestIndex: index})}
     }
 
-    filter = function(){
-
+    findTheHigher = function (){
+        let theHighest = parseInt(new_data[0].height);
+        let index =0;
+        for(let i=0; i<new_data.length; i++)
+            if(parseInt(new_data[i].height)>theHighest) {
+                theHighest = new_data[i].height;
+                index=i;
+            }
+        return index
     }
 
     render(){
@@ -67,7 +86,7 @@ class Table extends React.Component{
             <div>
                 <input placeholder="Search..." type="text" value={this.state.search} onChange={this.searchRequest} />
             <table>
-                <TR data = {data.filter}/>
+                <Table data = {new_data} highest = {this.state.theHighestIndex}/>
             </table>
             </div>
 
@@ -75,14 +94,7 @@ class Table extends React.Component{
     }
 }
 
-
-export default Table
-
-
-
-
-
-
+export default App
 
 
 const data =  {
@@ -362,3 +374,6 @@ const data =  {
         }
     ]
 }
+
+let new_data=data.results;
+

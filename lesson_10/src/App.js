@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import Styles from './Styles'
 import { Field } from 'react-final-form'
 import Wizard from './Wizard'
+import { SubmissionError } from 'redux-form'
 
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -57,8 +58,18 @@ if(clearValue.length>5)
 
 const onSubmit = async values => {
     await sleep(300)
-    window.alert(JSON.stringify(values, 0, 2))
-}
+        /*.then(()=>{
+        if (values.numberOfChildren >5)  {
+        throw new SubmissionError({
+            numberOfChildren: 0,
+            _error: 'Are you sure?'
+        })
+    }
+        else {*/
+        window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+    }
+//})
+    //window.alert(JSON.stringify(values, 0, 2))}
 
 const Condition = ({ when, is, children }) => (
     <Field name={when} subscription={{ value: true }}>
@@ -141,7 +152,7 @@ const App = () => (
 
                     <Field
                         name="age"
-                        validate={composeValidators(required, mustBeNumber, minValue(21))}
+                        validate={composeValidators(required, mustBeNumber, minValue(18))}
                     >
                         {({ input, meta }) => (
                             <div>
@@ -398,7 +409,6 @@ const App = () => (
 
                     <Field
                         value = "0"
-                        validate={composeValidators(required, mustBeNumber, minValue(0))}
                         name="numberOfChildren"
                     >
 
