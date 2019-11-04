@@ -1,0 +1,57 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    style
+      include style.css
+    title= title
+  body
+    h1= message
+    h2 Add new book
+
+    #addBook
+      label(for='title') Title*
+      input#title(type='text', name='title')
+      label(for='author') Author*
+      input#author(type='text', name='author')
+      label(for='comment') Comment
+      textarea#comment(name='comment')  
+      button#send SEND
+      
+    h2 Book's list
+
+    #books
+    script.
+      let books = document.getElementById('books');
+      fetch('http://localhost:3000/books')
+      .then(response=> response.json())
+      .then(response => response.forEach(function(item)
+      {
+      books.innerText += `${item.title} ${item.author} ${item.comment} \n`;
+      }))
+      //метод post
+      document.addEventListener("DOMContentLoaded",function() {
+      let myButton = document.getElementById('send');
+      myButton.addEventListener("click", function(){
+      let title = document.getElementById('title').value;
+      let author = document.getElementById('author').value;
+      let comment = document.getElementById('comment').value;
+      title = 'title=' + encodeURIComponent(title)+'&author='+encodeURIComponent(author)+'&comment='+encodeURIComponent(comment);
+      const post_request = new XMLHttpRequest();
+      post_request.open('POST','http://localhost:3000/books',true);
+      post_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+      post_request.send(title);
+      post_request.addEventListener('readystatechange', function() {
+      if ((post_request.readyState===4) && (post_request.status===201)) {
+      books.innerText='';
+      fetch('http://localhost:3000/books')
+      .then(response=> response.json())
+      .then(response => response.forEach(function(item)
+      {
+      books.innerText += `${item.title} ${item.author} ${item.comment} \n`;
+      }))
+      }
+      });
+      });
+      });

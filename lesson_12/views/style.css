@@ -1,0 +1,46 @@
+
+body{
+    margin: 20px 40px;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+#addBook{
+    max-width: 700px;
+    background: #f9cd0b;
+    padding: 10px;
+}
+
+#books{
+    max-width: 700px;
+    background: pink;
+    padding: 10px;
+}
+
+#books #text{
+    padding: 10px;
+}
+
+input, textarea, label{
+    margin: 5px;
+    padding: 5px;
+    display: block;
+}
+
+button{
+    margin: 20px 5px;
+    width: 80px;
+    padding: 5px;
+}
+
+textarea{
+    width: 300px;
+    height: 150px;
+}
